@@ -1,19 +1,18 @@
 <div class="ofertas index">
-	<h2><?php echo __('Ofertas');?></h2>
+	<h2><?php echo __('Ofertas'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('titulo');?></th>
-			<th><?php echo $this->Paginator->sort('activa');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th><?php echo $this->Paginator->sort('vacantes');?></th>
-			<th><?php echo $this->Paginator->sort('fecha_limite');?></th>
-			<th><?php echo $this->Paginator->sort('empresa_id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('titulo'); ?></th>
+			<th><?php echo $this->Paginator->sort('activa'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th><?php echo $this->Paginator->sort('vacantes'); ?></th>
+			<th><?php echo $this->Paginator->sort('fecha_limite'); ?></th>
+			<th><?php echo $this->Paginator->sort('empresa_id'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php
-	foreach ($ofertas as $oferta): ?>
+	<?php foreach ($ofertas as $oferta): ?>
 	<tr>
 		<td><?php echo h($oferta['Oferta']['id']); ?>&nbsp;</td>
 		<td><?php echo h($oferta['Oferta']['titulo']); ?>&nbsp;</td>
@@ -39,7 +38,6 @@
 	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
 	?>	</p>
-
 	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));

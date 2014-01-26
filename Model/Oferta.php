@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  * @property Foco $Foco
  */
 class Oferta extends AppModel {
+
 /**
  * Validation rules
  *
@@ -14,8 +15,8 @@ class Oferta extends AppModel {
  */
 	public $validate = array(
 		'titulo' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -93,15 +94,13 @@ class Oferta extends AppModel {
 			'joinTable' => 'focos_ofertas',
 			'foreignKey' => 'oferta_id',
 			'associationForeignKey' => 'foco_id',
-			'unique' => true,
+			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
 			'offset' => '',
 			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
 		)
 	);
 

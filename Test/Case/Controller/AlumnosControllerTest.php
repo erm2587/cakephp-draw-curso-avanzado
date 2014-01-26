@@ -1,64 +1,64 @@
 <?php
-/* Alumnos Test cases generated on: 2012-02-25 22:21:37 : 1330204897*/
 App::uses('AlumnosController', 'Controller');
-
-/**
- * TestAlumnosController *
- */
-class TestAlumnosController extends AlumnosController {
-/**
- * Auto render
- *
- * @var boolean
- */
-	public $autoRender = false;
-
-/**
- * Redirect action
- *
- * @param mixed $url
- * @param mixed $status
- * @param boolean $exit
- * @return void
- */
-	public function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
-}
 
 /**
  * AlumnosController Test Case
  *
  */
-class AlumnosControllerTestCase extends CakeTestCase {
+class AlumnosControllerTest extends ControllerTestCase {
+
 /**
  * Fixtures
  *
  * @var array
  */
-	public $fixtures = array('app.alumno', 'app.foco', 'app.alumnos_foco');
+	public $fixtures = array(
+		'app.alumno',
+		'app.foco',
+		'app.alumnos_foco',
+		'app.oferta',
+		'app.empresa',
+		'app.focos_oferta'
+	);
 
 /**
- * setUp method
+ * testIndex method
  *
  * @return void
  */
-	public function setUp() {
-		parent::setUp();
-
-		$this->Alumnos = new TestAlumnosController();
-		$this->Alumnos->constructClasses();
+	public function testIndex() {
 	}
 
 /**
- * tearDown method
+ * testView method
  *
  * @return void
  */
-	public function tearDown() {
-		unset($this->Alumnos);
+	public function testView() {
+	}
 
-		parent::tearDown();
+/**
+ * testAdd method
+ *
+ * @return void
+ */
+	public function testAdd() {
+	}
+
+/**
+ * testEdit method
+ *
+ * @return void
+ */
+	public function testEdit() {
+	}
+
+/**
+ * testDelete method
+ *
+ * @return void
+ */
+	public function testDelete() {
 	}
 
 }

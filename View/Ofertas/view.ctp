@@ -1,5 +1,5 @@
 <div class="ofertas view">
-<h2><?php  echo __('Oferta');?></h2>
+<h2><?php echo __('Oferta'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -57,20 +57,18 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Focos');?></h3>
-	<?php if (!empty($oferta['Foco'])):?>
+	<h3><?php echo __('Related Focos'); ?></h3>
+	<?php if (!empty($oferta['Foco'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Nombre'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php
-		$i = 0;
-		foreach ($oferta['Foco'] as $foco): ?>
+	<?php foreach ($oferta['Foco'] as $foco): ?>
 		<tr>
-			<td><?php echo $foco['id'];?></td>
-			<td><?php echo $foco['nombre'];?></td>
+			<td><?php echo $foco['id']; ?></td>
+			<td><?php echo $foco['nombre']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'focos', 'action' => 'view', $foco['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'focos', 'action' => 'edit', $foco['id'])); ?>
@@ -83,7 +81,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Foco'), array('controller' => 'focos', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Foco'), array('controller' => 'focos', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

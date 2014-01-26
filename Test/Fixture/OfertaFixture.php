@@ -1,6 +1,4 @@
 <?php
-/* Oferta Fixture generated on: 2012-02-26 18:02:53 : 1330275773 */
-
 /**
  * OfertaFixture
  *
@@ -13,15 +11,17 @@ class OfertaFixture extends CakeTestFixture {
  * @var array
  */
 	public $fields = array(
-		'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary', 'collate' => 'latin1_swedish_ci', 'comment' => '', 'charset' => 'latin1'),
-		'titulo' => array('type' => 'string', 'null' => false, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'charset' => 'latin1'),
-		'activa' => array('type' => 'boolean', 'null' => false, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
-		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
-		'modified' => array('type' => 'datetime', 'null' => false, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
-		'vacantes' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 3, 'collate' => NULL, 'comment' => ''),
-		'fecha_limite' => array('type' => 'date', 'null' => false, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
-		'empresa_id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'charset' => 'latin1'),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'id' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 36, 'key' => 'primary', 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'titulo' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'activa' => array('type' => 'boolean', 'null' => false, 'default' => null),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => null),
+		'modified' => array('type' => 'datetime', 'null' => false, 'default' => null),
+		'vacantes' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 3),
+		'fecha_limite' => array('type' => 'date', 'null' => false, 'default' => null),
+		'empresa_id' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 36, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'indexes' => array(
+			'PRIMARY' => array('column' => 'id', 'unique' => 1)
+		),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'InnoDB')
 	);
 
@@ -32,14 +32,15 @@ class OfertaFixture extends CakeTestFixture {
  */
 	public $records = array(
 		array(
-			'id' => '4f4a65bd-5b80-4cd1-9039-0eb67f000001',
+			'id' => '52e55cb8-0090-4224-9790-1b11088342a1',
 			'titulo' => 'Lorem ipsum dolor sit amet',
 			'activa' => 1,
-			'created' => '2012-02-26 18:02:53',
-			'modified' => '2012-02-26 18:02:53',
+			'created' => '2014-01-26 20:06:32',
+			'modified' => '2014-01-26 20:06:32',
 			'vacantes' => 1,
-			'fecha_limite' => '2012-02-26',
+			'fecha_limite' => '2014-01-26',
 			'empresa_id' => 'Lorem ipsum dolor sit amet'
 		),
 	);
+
 }

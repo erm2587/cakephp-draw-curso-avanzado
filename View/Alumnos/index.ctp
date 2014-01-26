@@ -1,19 +1,18 @@
 <div class="alumnos index">
-	<h2><?php echo __('Alumnos');?></h2>
+	<h2><?php echo __('Alumnos'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('nombre');?></th>
-			<th><?php echo $this->Paginator->sort('primer_apellido');?></th>
-			<th><?php echo $this->Paginator->sort('segundo_apellido');?></th>
-			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('telefono');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('nombre'); ?></th>
+			<th><?php echo $this->Paginator->sort('primer_apellido'); ?></th>
+			<th><?php echo $this->Paginator->sort('segundo_apellido'); ?></th>
+			<th><?php echo $this->Paginator->sort('email'); ?></th>
+			<th><?php echo $this->Paginator->sort('telefono'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php
-	foreach ($alumnos as $alumno): ?>
+	<?php foreach ($alumnos as $alumno): ?>
 	<tr>
 		<td><?php echo h($alumno['Alumno']['id']); ?>&nbsp;</td>
 		<td><?php echo h($alumno['Alumno']['nombre']); ?>&nbsp;</td>
@@ -37,7 +36,6 @@
 	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
 	?>	</p>
-
 	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));

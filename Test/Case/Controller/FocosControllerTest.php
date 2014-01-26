@@ -1,64 +1,64 @@
 <?php
-/* Focos Test cases generated on: 2012-02-25 22:27:31 : 1330205251*/
 App::uses('FocosController', 'Controller');
-
-/**
- * TestFocosController *
- */
-class TestFocosController extends FocosController {
-/**
- * Auto render
- *
- * @var boolean
- */
-	public $autoRender = false;
-
-/**
- * Redirect action
- *
- * @param mixed $url
- * @param mixed $status
- * @param boolean $exit
- * @return void
- */
-	public function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
-}
 
 /**
  * FocosController Test Case
  *
  */
-class FocosControllerTestCase extends CakeTestCase {
+class FocosControllerTest extends ControllerTestCase {
+
 /**
  * Fixtures
  *
  * @var array
  */
-	public $fixtures = array('app.foco', 'app.alumno', 'app.alumnos_foco', 'app.oferta', 'app.focos_oferta');
+	public $fixtures = array(
+		'app.foco',
+		'app.alumno',
+		'app.alumnos_foco',
+		'app.oferta',
+		'app.empresa',
+		'app.focos_oferta'
+	);
 
 /**
- * setUp method
+ * testIndex method
  *
  * @return void
  */
-	public function setUp() {
-		parent::setUp();
-
-		$this->Focos = new TestFocosController();
-		$this->Focos->constructClasses();
+	public function testIndex() {
 	}
 
 /**
- * tearDown method
+ * testView method
  *
  * @return void
  */
-	public function tearDown() {
-		unset($this->Focos);
+	public function testView() {
+	}
 
-		parent::tearDown();
+/**
+ * testAdd method
+ *
+ * @return void
+ */
+	public function testAdd() {
+	}
+
+/**
+ * testEdit method
+ *
+ * @return void
+ */
+	public function testEdit() {
+	}
+
+/**
+ * testDelete method
+ *
+ * @return void
+ */
+	public function testDelete() {
 	}
 
 }

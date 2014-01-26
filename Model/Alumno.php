@@ -115,7 +115,7 @@ class Alumno extends AppModel {
 			'joinTable' => 'alumnos_focos',
 			'foreignKey' => 'alumno_id',
 			'associationForeignKey' => 'foco_id',
-			'unique' => true,
+			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
