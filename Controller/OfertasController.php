@@ -16,6 +16,13 @@ class OfertasController extends AppController {
 	public $components = array('Paginator');
 
 /**
+ * Main app home page
+*/
+	public function home() {
+		//nada de momento aquí
+	}
+
+/**
  * index method
  *
  * @return void
