@@ -104,4 +104,14 @@ class Oferta extends AppModel {
 		)
 	);
 
+/**
+ * Últimas 5 ofertas, mejor convertir esto en un custom finder más adelante
+ * @return type
+ */
+	public function ultimas() {
+		return $this->find('all', array(
+			'limit' => 5,
+			'order' => array("{$this->alias}.created" => 'desc'),
+		));
+	}
 }

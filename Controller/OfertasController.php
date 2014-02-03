@@ -19,7 +19,8 @@ class OfertasController extends AppController {
  * Main app home page
 */
 	public function home() {
-		//nada de momento aquí
+		$ofertas = $this->Oferta->ultimas();
+		$this->set(compact('ofertas'));
 	}
 
 /**
