@@ -127,4 +127,8 @@ class Alumno extends AppModel {
 		)
 	);
 
+	public $belongsTo = array(
+		'Usuario'
+	);
+
 }
