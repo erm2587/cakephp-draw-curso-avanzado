@@ -68,6 +68,14 @@ class AppController extends Controller {
 					),
 				)
 			),
+			'authorize' => array(
+				'Controller',
+				'BzUtils.SimpleRbac' => array(
+					'roleField' => 'rol',
+				),
+			),
+			'unauthorizedRedirect' => '/',
+			'authError' => 'Ops, no tienes permiso',
 		)
 	);
 
@@ -81,4 +89,12 @@ class AppController extends Controller {
 		'Form' => array('className' => 'BoostCake.BoostCakeForm'),
 		'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
 	);
+
+/**
+ * Base isAuthorize false for all actions
+ * @return boolean
+ */
+	public function isAuthorized() {
+		return false;
+	}
 }

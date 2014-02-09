@@ -7,3 +7,6 @@
 [submodule "Plugin/Migrations"]
 	path = Plugin/Migrations
 	url = https://github.com/CakeDC/migrations
+[submodule "Plugin/BzUtils"]
+	path = Plugin/BzUtils
+	url = https://github.com/steinkel/cakephp-bz-utils.git

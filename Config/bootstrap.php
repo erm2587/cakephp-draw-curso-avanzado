@@ -74,6 +74,7 @@ Cache::config('default', array('engine' => 'File'));
 CakePlugin::load('DebugKit');
 CakePlugin::load('BoostCake');
 CakePlugin::load('Migrations');
+CakePlugin::load('BzUtils');
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:
@@ -110,3 +111,15 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+// Simple RBAC config
+$actionMap = array(
+	'Usuarios' => array(
+		'logout' => array('*'),
+		'panel' => array('*'),
+	),
+	'Alumnos' => array(
+		'index' => array('*'),
+	),
+);
+Configure::write('SimpleRbac.actionMap', $actionMap);
