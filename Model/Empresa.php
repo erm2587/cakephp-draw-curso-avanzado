@@ -77,7 +77,17 @@ class Empresa extends AppModel {
 					"{$this->alias}.{$this->primaryKey}" => $empresaId,
 				),
 				'contain' => array(
-					'Oferta.Foco.Alumno'
+					'Oferta' => array(
+						'fields' => array('id', 'titulo'),
+						'order' => array('titulo' => 'ASC'),
+						'Foco' => array(
+							'fields' => array('id', 'nombre'),
+							'Alumno' => array(
+								'fields' => array('email'),
+								'order' => array('email' => 'ASC'),
+							)
+						),
+					)
 				),
 
 			)
