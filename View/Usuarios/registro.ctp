@@ -10,7 +10,6 @@ echo $this->Form->create('Usuario', array(
 	'class' => 'well'
 ));
 echo $this->Html->tag('h2', __('Registro de Alumnos'));
-echo $this->Form->input('Usuario.usuario', array('label' => __('usuario'), 'div' => 'form-group'));
 echo $this->Form->input('Usuario.email', array('label' => __('email'), 'div' => 'form-group'));
 echo $this->Form->input('Usuario.password', array('label' => __('contraseña'), 'div' => 'form-group'));
 echo $this->Form->input('Usuario.password_again', array(

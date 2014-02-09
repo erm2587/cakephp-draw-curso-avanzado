@@ -9,6 +9,15 @@ App::uses('AppController', 'Controller');
 class UsuariosController extends AppController {
 
 /**
+ * Callback
+ */
+	public function beforeFilter() {
+		parent::beforeFilter();
+		// permitir acciones sin login
+		$this->Auth->allow('registro', 'login');
+	}
+
+/**
  * Registro de un nuevo usuario
  * @return type
  */
@@ -27,7 +36,6 @@ class UsuariosController extends AppController {
 			if (empty($this->request->data)) {
 				$this->request->data = array(
 					'Usuario' => array(
-						'usuario' => 'user-1',
 						'email' => 'me@g.com',
 						'password' => 'password',
 						'password_again' => 'password'
@@ -50,7 +58,31 @@ class UsuariosController extends AppController {
 
 	}
 
-	/**
+/**
+ * Login
+ * @return type
+ */
+	public function login() {
+		if ($this->request->is('post')) {
+			debug($this->request->data);
+			if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirect());
+			}
+			$this->Session->setFlash(__('Usuario o contraseña incorrectos'));
+			return $this->redirect($this->Auth->settings['loginAction']);
+		}
+	}
+
+/**
+ * Logout action
+ * @return type
+ */
+	public function logout() {
+		$this->Session->destroy();
+		return $this->redirect($this->Auth->logout());
+	}
+
+/**
  * index method
  *
  * @return void

@@ -31,11 +31,50 @@ App::uses('Controller', 'Controller');
  * @package       app.Controller
  */
 class AppController extends Controller {
+
+/**
+ *
+ * @var array
+ */
 	public $components = array(
 		'Session',
 		'Paginator',
-		'DebugKit.Toolbar'
+		'DebugKit.Toolbar',
+		'Auth' => array(
+			'loginAction' => array(
+				'controller' => 'ofertas',
+				'action' => 'home',
+			),
+			'loginRedirect' => array(
+				'controller' => 'usuarios',
+				'action' => 'panel',
+			),
+			'logoutRedirect' => array(
+				'controller' => 'ofertas',
+				'action' => 'home',
+			),
+			'authenticate' => array(
+				'Form' => array(
+					'userModel' => 'Usuario',
+					'fields' => array('username' => 'email'),
+					'passwordHasher' => array('className' => 'Blowfish'),
+					//por si acaso no está definido en app model
+					'recursive' => -1,
+					//traer también datos del alumno
+					'contain' => array('Alumno'),
+					//filtrar query con estas condiciones
+					'scope' => array(
+						'Usuario.activo' => true,
+					),
+				)
+			),
+		)
 	);
+
+/**
+ *
+ * @var array
+ */
 	public $helpers = array(
 		'Session',
 		'Html' => array('className' => 'BoostCake.BoostCakeHtml'),

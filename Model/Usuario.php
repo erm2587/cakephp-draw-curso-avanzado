@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 /**
  * Usuario Model
  *
@@ -76,6 +77,20 @@ class Usuario extends AppModel {
 		'Alumno',
 	);
 
+/**
+ * beforeSave callback
+ * @param type $options
+ * @return boolean
+ */
+	public function beforeSave($options = array()) {
+		if (isset($this->data[$this->alias]['password'])) {
+			$passwordHasher = new BlowfishPasswordHasher();
+			$this->data[$this->alias]['password'] = $passwordHasher->hash(
+					$this->data[$this->alias]['password']
+			);
+		}
+		return true;
+	}
 /**
  * Registro de alumnos
  * @param array $data
