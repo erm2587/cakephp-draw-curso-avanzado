@@ -67,4 +67,20 @@ class Empresa extends AppModel {
 		)
 	);
 
+/**
+ * Recupera todos los alumnos relacionados por foco con cada uno de los focos de las ofertas de una empresa dada
+ * @param type $empresaId
+ */
+	public function alumnosFoco($empresaId) {
+		return $this->find('all', array(
+				'conditions' => array(
+					"{$this->alias}.{$this->primaryKey}" => $empresaId,
+				),
+				'contain' => array(
+					'Oferta.Foco.Alumno'
+				),
+
+			)
+		);
+	}
 }
