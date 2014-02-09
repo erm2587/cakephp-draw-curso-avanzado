@@ -9,6 +9,15 @@ App::uses('AppController', 'Controller');
 class UsuariosController extends AppController {
 
 /**
+ *
+ * @var array
+ */
+	public $uses = array(
+		'Usuario',
+		'Oferta'
+	);
+
+/**
  * Callback
  */
 	public function beforeFilter() {
@@ -55,7 +64,34 @@ class UsuariosController extends AppController {
  * Panel de control, home tras el registro o login
  */
 	public function panel() {
-
+		//@todo esto lo vamos a mover al modelo, que es donde debe estar...
+		$focos = $this->Usuario->Alumno->find('first', array(
+			'conditions' => array('Alumno.id' => AuthComponent::user('Alumno.id')),
+			'contain' => array('Foco'),
+		));
+		$focoIds = Hash::extract($focos, 'Foco.{n}.id');
+		$this->Oferta->bindModel(
+			array('hasOne' => array(
+					'FocosOferta' => array(
+						'type' => 'inner',
+						'conditions' => array(
+							'FocosOferta.foco_id' => $focoIds,
+						)
+					)
+				),
+			),
+			// esto es importante ya que el paginate hace 2 finds
+			false
+		);
+		$this->Paginator->settings = array(
+			'Oferta' => array(
+				//'paramType' => 'querystring',
+				'order' => array('titulo' => 'asc'),
+				'limit' => 1,
+			)
+		);
+		$ofertas = $this->Paginator->paginate('Oferta');
+		$this->set(compact('ofertas'));
 	}
 
 /**

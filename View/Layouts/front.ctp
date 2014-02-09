@@ -20,7 +20,20 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">Home</a>
+					<?php
+					if (AuthComponent::user()) {
+						echo $this->Html->link(__('Mi Inicio'), array(
+							'controller' => 'usuarios',
+							'action' => 'panel',
+						), array(
+							'class' => 'navbar-brand'
+						));
+					} else {
+						echo $this->Html->link(__('Inicio'), '/', array(
+							'class' => 'navbar-brand',
+						));
+					}
+					?>
 				</div>
 				<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
 					<ul class="nav navbar-nav">
