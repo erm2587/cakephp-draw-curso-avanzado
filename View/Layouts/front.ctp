@@ -4,14 +4,6 @@
 		<title><?php echo $this->fetch('title'); ?></title>
 		<!-- Obtain Bootstrap style sheet from CDN (online service) so it doesn't have to be on my machine -->
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" media="screen">   	<link href="//netdna.bootstrapcdn.com/bootswatch/3.0.3/united/bootstrap.min.css" rel="stylesheet" media="screen">
-
-		<style>
-			body {
-				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-			}
-		</style>
-
-
 	</head>
 	<body>
 		<!-- Obtain latest version of jquery automatically -->
@@ -35,6 +27,14 @@
 						<li>
 							<a href="#">Contacto</a>
 						</li>
+						<?php
+						if (AuthComponent::user()) {
+							echo $this->Html->tag('li', $this->Html->link(__('Cerrar sesión de %s', AuthComponent::user('Alumno.nombre')), array(
+								'controller' => 'usuarios',
+								'action' => 'logout',
+							)));
+						}
+						?>
 					</ul>
 				</nav>
 			</div>
