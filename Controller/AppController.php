@@ -1,4 +1,5 @@
 <?php
+App::uses('Usuario', 'Model');
 /**
  * Application level Controller
  *
@@ -95,6 +96,9 @@ class AppController extends Controller {
  * @return boolean
  */
 	public function isAuthorized() {
+		if (AuthComponent::user('rol') === Usuario::ROL_ADMIN) {
+			return true;
+		}
 		return false;
 	}
 }
