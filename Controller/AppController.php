@@ -85,6 +85,7 @@ class AppController extends Controller {
  * @var array
  */
 	public $helpers = array(
+		'Js' => array('Jquery'),
 		'Session',
 		'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
 		'Form' => array('className' => 'BoostCake.BoostCakeForm'),
