@@ -42,6 +42,7 @@ class AppController extends Controller {
 		'Session',
 		'Paginator',
 		'DebugKit.Toolbar',
+		'Security',
 		'Auth' => array(
 			'loginAction' => array(
 				'controller' => 'ofertas',

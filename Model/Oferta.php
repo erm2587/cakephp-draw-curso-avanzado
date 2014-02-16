@@ -105,6 +105,12 @@ class Oferta extends AppModel {
 	);
 
 /**
+ * Custom Finders
+ * @var array
+ */
+	public $findMethods = array('interesantes' => true);
+
+/**
  * Últimas 5 ofertas, mejor convertir esto en un custom finder más adelante
  * @return type
  */
@@ -114,4 +120,39 @@ class Oferta extends AppModel {
 			'order' => array("{$this->alias}.created" => 'desc'),
 		));
 	}
+
+/**
+ * Obtiene ofertas interesantes para el usuario actual
+ * @param type $state
+ * @param type $query
+ * @param type $results
+ * @return type
+ */
+	protected function _findInteresantes($state, $query, $results = array()) {
+		if ($state === 'before') {
+			//@todo esto lo vamos a mover al modelo, que es donde debe estar...
+			$focos = ClassRegistry::init('Alumno')->find('first', array(
+				'conditions' => array('Alumno.id' => AuthComponent::user('Alumno.id')),
+				'contain' => array('Foco'),
+			));
+			$focoIds = Hash::extract($focos, 'Foco.{n}.id');
+			$this->bindModel(
+				array('hasOne' => array(
+						'FocosOferta' => array(
+							'type' => 'inner',
+							'conditions' => array(
+								'FocosOferta.foco_id' => $focoIds,
+							)
+						)
+					),
+				),
+				// esto es importante ya que el paginate hace 2 finds
+				false
+			);
+
+			return $query;
+		}
+		return $results;
+	}
+
 }

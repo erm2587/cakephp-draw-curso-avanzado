@@ -24,6 +24,15 @@ class UsuariosController extends AppController {
 		parent::beforeFilter();
 		// permitir acciones sin login
 		$this->Auth->allow('registro', 'login');
+
+		$this->Paginator->settings = array(
+			'Oferta' => array(
+				'findType' => 'interesantes',
+				//'paramType' => 'querystring',
+				'order' => array('titulo' => 'asc'),
+				'limit' => 1,
+			)
+		);
 	}
 
 /**
@@ -65,37 +74,17 @@ class UsuariosController extends AppController {
  */
 	public function panel() {
 		$this->layout = 'front';
-		if ($this->request->is('ajax')) {
-			$this->layout = 'ajax';
-		}
-		//@todo esto lo vamos a mover al modelo, que es donde debe estar...
-		$focos = $this->Usuario->Alumno->find('first', array(
-			'conditions' => array('Alumno.id' => AuthComponent::user('Alumno.id')),
-			'contain' => array('Foco'),
-		));
-		$focoIds = Hash::extract($focos, 'Foco.{n}.id');
-		$this->Oferta->bindModel(
-			array('hasOne' => array(
-					'FocosOferta' => array(
-						'type' => 'inner',
-						'conditions' => array(
-							'FocosOferta.foco_id' => $focoIds,
-						)
-					)
-				),
-			),
-			// esto es importante ya que el paginate hace 2 finds
-			false
-		);
-		$this->Paginator->settings = array(
-			'Oferta' => array(
-				//'paramType' => 'querystring',
-				'order' => array('titulo' => 'asc'),
-				'limit' => 1,
-			)
-		);
 		$ofertas = $this->Paginator->paginate('Oferta');
 		$this->set(compact('ofertas'));
+	}
+
+/**
+ * Ajax para paginacion de ofertas interesantes
+ */
+	public function paginador() {
+		$ofertas = $this->Paginator->paginate('Oferta');
+		$this->set(compact('ofertas'));
+		$this->render('/Elements/Ofertas/paginador', 'ajax');
 	}
 
 /**

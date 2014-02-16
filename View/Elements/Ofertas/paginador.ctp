@@ -1,7 +1,12 @@
 <?php
 $this->Paginator->options(array(
+	'url' => array(
+		'controller' => 'usuarios',
+		'action' => 'paginador'
+	),
 	'update' => '#paginador',
 	'evalScripts' => true,
+	'model' => 'Oferta',
 ));
 ?>
 <div id="paginador" class="ofertas paginador">
