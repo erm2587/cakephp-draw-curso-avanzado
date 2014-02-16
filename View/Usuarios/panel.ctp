@@ -1,10 +1,10 @@
-<?php
-$this->layout = 'front';
-?>
+<?php if (!$this->request->is('ajax')) : ?>
 <h1>Bienvenido!</h1>
 <div class="row">
 	<div class="col-md-6">
+<?php endif; ?>
 		<?php echo $this->element('Ofertas/paginador'); ?>
+<?php if (!$this->request->is('ajax')) : ?>
 	</div>
 	<div id="jstest">click here</div>
 
@@ -18,3 +18,4 @@ $this->layout = 'front';
 	$this->Js->get('#jstest')->event('click', $this->Js->effect('fadeOut'));
 	?>
 </div>
+<?php endif; ?>

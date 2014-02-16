@@ -64,6 +64,10 @@ class UsuariosController extends AppController {
  * Panel de control, home tras el registro o login
  */
 	public function panel() {
+		$this->layout = 'front';
+		if ($this->request->is('ajax')) {
+			$this->layout = 'ajax';
+		}
 		//@todo esto lo vamos a mover al modelo, que es donde debe estar...
 		$focos = $this->Usuario->Alumno->find('first', array(
 			'conditions' => array('Alumno.id' => AuthComponent::user('Alumno.id')),

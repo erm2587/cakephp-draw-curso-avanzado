@@ -38,6 +38,7 @@ class AppController extends Controller {
  * @var array
  */
 	public $components = array(
+		'RequestHandler',
 		'Session',
 		'Paginator',
 		'DebugKit.Toolbar',
@@ -77,7 +78,7 @@ class AppController extends Controller {
 			),
 			'unauthorizedRedirect' => '/',
 			'authError' => 'Ops, no tienes permiso',
-		)
+		),
 	);
 
 /**

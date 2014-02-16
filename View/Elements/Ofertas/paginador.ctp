@@ -1,4 +1,10 @@
-<div class="ofertas paginador">
+<?php
+$this->Paginator->options(array(
+	'update' => '#paginador',
+	'evalScripts' => true,
+));
+?>
+<div id="paginador" class="ofertas paginador">
 	<h2><?php echo __('Ofertas'); ?></h2>
 	<table class='table table-stripped'>
 	<tr>
